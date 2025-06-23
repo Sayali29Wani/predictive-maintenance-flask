@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predictive Maintenance App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>🛠️ Machine Health Predictor</h1>
+  <form action="/predict" method="post">
+    <label>Type (L=1, M=2, H=0):</label><input name="type"><br><br>
+    <label>Air Temperature:</label><input name="air_temp"><br><br>
+    <label>Process Temperature:</label><input name="process_temp"><br><br>
+    <label>RPM:</label><input name="rpm"><br><br>
+    <label>Torque:</label><input name="torque"><br><br>
+    <label>Tool Wear:</label><input name="tool_wear"><br><br>
+    <label>TWF:</label><input name="twf"><br><br>
+    <label>HDF:</label><input name="hdf"><br><br>
+    <label>PWF:</label><input name="pwf"><br><br>
+    <label>OSF:</label><input name="osf"><br><br>
+    <label>RNF:</label><input name="rnf"><br><br>
+    <input type="submit" value="Predict">
+  </form>
+  {% if prediction %}
+    <h2>Result: {{ prediction }}</h2>
+  {% endif %}
+</body>
+</html>
