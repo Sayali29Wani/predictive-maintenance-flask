@@ -5,7 +5,12 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the trained model
-model = joblib.load("C:/Users/Sayali/Desktop/predictive_maintenance/logs/rf_model.pkl")
+import os
+import joblib
+
+model_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'rf_model.pkl')
+model = joblib.load(model_path)
+
 
 
 @app.route("/")
